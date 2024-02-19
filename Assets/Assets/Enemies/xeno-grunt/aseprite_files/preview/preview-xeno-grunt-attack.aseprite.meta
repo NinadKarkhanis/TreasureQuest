@@ -1,0 +1,920 @@
+fileFormatVersion: 2
+guid: db4bd3348dda0f2489e8a8ac65d56c32
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: preview-xeno-grunt-attack_Frame_0
+    originalName: 
+    pivot: {x: 3.7142859, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 14
+      height: 18
+    spriteID: a8d2b56333f294b49a171e23ade0829d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: preview-xeno-grunt-attack_Frame_1
+    originalName: 
+    pivot: {x: 4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 174
+      width: 13
+      height: 19
+    spriteID: 0a14535b2a1c1ba4b8a9309a99a9b939
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 174}
+  - name: preview-xeno-grunt-attack_Frame_2
+    originalName: 
+    pivot: {x: 4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 115
+      width: 13
+      height: 20
+    spriteID: d45f2bbefdbc6e245a93cc12612ab8a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_3
+    originalName: 
+    pivot: {x: 4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 115
+      width: 13
+      height: 20
+    spriteID: b66252a7536c4c14ea046f00bd7b60d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 211, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_4
+    originalName: 
+    pivot: {x: 1.3333334, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 61
+      width: 39
+      height: 19
+    spriteID: df68f5fab707da24fb97e56c2e87775a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 61}
+  - name: preview-xeno-grunt-attack_Frame_5
+    originalName: 
+    pivot: {x: 0.7878788, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 88
+      width: 66
+      height: 19
+    spriteID: cddd7411a0f1fbc4fae5de84be419320
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 88}
+  - name: preview-xeno-grunt-attack_Frame_6
+    originalName: 
+    pivot: {x: 0.59770113, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 61
+      width: 87
+      height: 19
+    spriteID: 13a16c6e8265db74cb7eae93e1cfbe31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 61}
+  - name: preview-xeno-grunt-attack_Frame_7
+    originalName: 
+    pivot: {x: 0.5252525, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 61
+      width: 99
+      height: 19
+    spriteID: 5544fbd22ba504f429bbf75f33efdc9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 61}
+  - name: preview-xeno-grunt-attack_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 118
+      y: 4
+      width: 104
+      height: 19
+    spriteID: c7bc39829de6bd04ba096b7a254bb57f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 118, y: 4}
+  - name: preview-xeno-grunt-attack_Frame_9
+    originalName: 
+    pivot: {x: 0.49056605, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 106
+      height: 23
+    spriteID: 94bd2cabc564efc4483d0fff26c89292
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: preview-xeno-grunt-attack_Frame_10
+    originalName: 
+    pivot: {x: 0.4814815, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 35
+      width: 108
+      height: 18
+    spriteID: 6069f40793f73b24ba211aa19c0b0e9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 35}
+  - name: preview-xeno-grunt-attack_Frame_11
+    originalName: 
+    pivot: {x: 3.466667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 113
+      y: 115
+      width: 15
+      height: 19
+    spriteID: 9be07ed3f87924148bd0b987e9306dac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 113, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_12
+    originalName: 
+    pivot: {x: 3.1764705, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 215
+      y: 88
+      width: 17
+      height: 19
+    spriteID: 83b01f57b87524d46b8da5c4a88e554e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 215, y: 88}
+  - name: preview-xeno-grunt-attack_Frame_13
+    originalName: 
+    pivot: {x: 2.8500001, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 230
+      y: 4
+      width: 20
+      height: 23
+    spriteID: 550e87fc10518cd43a20334d7c8cebc8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 230, y: 4}
+  - name: preview-xeno-grunt-attack_Frame_14
+    originalName: 
+    pivot: {x: 2.7272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 115
+      width: 22
+      height: 25
+    spriteID: 365ad47bb2e2e6c41a171ead249c0321
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_15
+    originalName: 
+    pivot: {x: 1.3902439, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 35
+      width: 41
+      height: 15
+    spriteID: aa931aaaaff86a14f939c91aa2789e98
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 35}
+  - name: preview-xeno-grunt-attack_Frame_16
+    originalName: 
+    pivot: {x: 1.5151515, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 169
+      y: 35
+      width: 33
+      height: 15
+    spriteID: 6fc0d04f7f5c2584fa492350e149fb24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 169, y: 35}
+  - name: preview-xeno-grunt-attack_Frame_17
+    originalName: 
+    pivot: {x: 2.173913, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 184
+      y: 88
+      width: 23
+      height: 15
+    spriteID: 252eeefd9b6a6374fbcb8f75459d26af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 184, y: 88}
+  - name: preview-xeno-grunt-attack_Frame_18
+    originalName: 
+    pivot: {x: 2.631579, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 136
+      y: 115
+      width: 19
+      height: 15
+    spriteID: cb618a98675d05441be92dffc75073b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 136, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_19
+    originalName: 
+    pivot: {x: 2.631579, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 115
+      width: 19
+      height: 15
+    spriteID: 5c1f9f6d4dbcf3e469aa356c1d1bdc6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_20
+    originalName: 
+    pivot: {x: 3.5333335, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 232
+      y: 115
+      width: 15
+      height: 17
+    spriteID: 8167639954f09464aaeda011152d60f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 232, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_21
+    originalName: 
+    pivot: {x: 3.7857144, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 91
+      y: 115
+      width: 14
+      height: 21
+    spriteID: fe4b2e8207feb474dbf6e720588955d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 91, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_22
+    originalName: 
+    pivot: {x: 4.0769234, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 115
+      width: 13
+      height: 25
+    spriteID: e9aee5e21d41a3c41b181e6d5652f6f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_23
+    originalName: 
+    pivot: {x: 1.8571429, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 115
+      width: 28
+      height: 25
+    spriteID: ca89f5b549be2d142ba3281181802787
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 115}
+  - name: preview-xeno-grunt-attack_Frame_24
+    originalName: 
+    pivot: {x: 1.8571429, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 210
+      y: 35
+      width: 28
+      height: 15
+    spriteID: 42d625c7c30356541b67f88f5e07c75b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 210, y: 35}
+  - name: preview-xeno-grunt-attack_Frame_25
+    originalName: 
+    pivot: {x: 1.8571429, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 88
+      width: 28
+      height: 13
+    spriteID: c8ea19589463ab147808f9a1e39a51ec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 88}
+  - name: preview-xeno-grunt-attack_Frame_26
+    originalName: 
+    pivot: {x: 1.925926, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 88
+      width: 27
+      height: 13
+    spriteID: 2527adca3a27b1944b94962d4a07cf42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 114, y: 88}
+  - name: preview-xeno-grunt-attack_Frame_27
+    originalName: 
+    pivot: {x: 1.925926, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 149
+      y: 88
+      width: 27
+      height: 13
+    spriteID: ef991ef53d8aada429cd12f8d4401419
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 149, y: 88}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1273206747
+    name: preview-xeno-grunt-attack
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: preview-xeno-grunt-attack_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 12
+        y: 0
+        width: 14
+        height: 18
+      spriteId: a8d2b56333f294b49a171e23ade0829d
+    - name: preview-xeno-grunt-attack_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 12
+        y: 0
+        width: 13
+        height: 19
+      spriteId: 0a14535b2a1c1ba4b8a9309a99a9b939
+    - name: preview-xeno-grunt-attack_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 12
+        y: 0
+        width: 13
+        height: 20
+      spriteId: d45f2bbefdbc6e245a93cc12612ab8a8
+    - name: preview-xeno-grunt-attack_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 12
+        y: 0
+        width: 13
+        height: 20
+      spriteId: b66252a7536c4c14ea046f00bd7b60d0
+    - name: preview-xeno-grunt-attack_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 12
+        y: 0
+        width: 39
+        height: 19
+      spriteId: df68f5fab707da24fb97e56c2e87775a
+    - name: preview-xeno-grunt-attack_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 12
+        y: 0
+        width: 66
+        height: 19
+      spriteId: cddd7411a0f1fbc4fae5de84be419320
+    - name: preview-xeno-grunt-attack_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 12
+        y: 0
+        width: 87
+        height: 19
+      spriteId: 13a16c6e8265db74cb7eae93e1cfbe31
+    - name: preview-xeno-grunt-attack_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 12
+        y: 0
+        width: 99
+        height: 19
+      spriteId: 5544fbd22ba504f429bbf75f33efdc9d
+    - name: preview-xeno-grunt-attack_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 12
+        y: 0
+        width: 104
+        height: 19
+      spriteId: c7bc39829de6bd04ba096b7a254bb57f
+    - name: preview-xeno-grunt-attack_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 12
+        y: 0
+        width: 106
+        height: 23
+      spriteId: 94bd2cabc564efc4483d0fff26c89292
+    - name: preview-xeno-grunt-attack_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 12
+        y: 0
+        width: 108
+        height: 18
+      spriteId: 6069f40793f73b24ba211aa19c0b0e9b
+    - name: preview-xeno-grunt-attack_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 12
+        y: 0
+        width: 15
+        height: 19
+      spriteId: 9be07ed3f87924148bd0b987e9306dac
+    - name: preview-xeno-grunt-attack_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 10
+        y: 0
+        width: 17
+        height: 19
+      spriteId: 83b01f57b87524d46b8da5c4a88e554e
+    - name: preview-xeno-grunt-attack_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 7
+        y: 0
+        width: 20
+        height: 23
+      spriteId: 550e87fc10518cd43a20334d7c8cebc8
+    - name: preview-xeno-grunt-attack_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 4
+        y: 0
+        width: 22
+        height: 25
+      spriteId: 365ad47bb2e2e6c41a171ead249c0321
+    - name: preview-xeno-grunt-attack_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 7
+        y: 0
+        width: 41
+        height: 15
+      spriteId: aa931aaaaff86a14f939c91aa2789e98
+    - name: preview-xeno-grunt-attack_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 14
+        y: 0
+        width: 33
+        height: 15
+      spriteId: 6fc0d04f7f5c2584fa492350e149fb24
+    - name: preview-xeno-grunt-attack_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 14
+        y: 0
+        width: 23
+        height: 15
+      spriteId: 252eeefd9b6a6374fbcb8f75459d26af
+    - name: preview-xeno-grunt-attack_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 14
+        y: 0
+        width: 19
+        height: 15
+      spriteId: cb618a98675d05441be92dffc75073b8
+    - name: preview-xeno-grunt-attack_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 14
+        y: 0
+        width: 19
+        height: 15
+      spriteId: 5c1f9f6d4dbcf3e469aa356c1d1bdc6b
+    - name: preview-xeno-grunt-attack_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 11
+        y: 0
+        width: 15
+        height: 17
+      spriteId: 8167639954f09464aaeda011152d60f8
+    - name: preview-xeno-grunt-attack_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 11
+        y: 0
+        width: 14
+        height: 21
+      spriteId: fe4b2e8207feb474dbf6e720588955d8
+    - name: preview-xeno-grunt-attack_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 11
+        y: 0
+        width: 13
+        height: 25
+      spriteId: e9aee5e21d41a3c41b181e6d5652f6f4
+    - name: preview-xeno-grunt-attack_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 12
+        y: 0
+        width: 28
+        height: 25
+      spriteId: ca89f5b549be2d142ba3281181802787
+    - name: preview-xeno-grunt-attack_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 12
+        y: 0
+        width: 28
+        height: 15
+      spriteId: 42d625c7c30356541b67f88f5e07c75b
+    - name: preview-xeno-grunt-attack_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 12
+        y: 0
+        width: 28
+        height: 13
+      spriteId: c8ea19589463ab147808f9a1e39a51ec
+    - name: preview-xeno-grunt-attack_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 12
+        y: 0
+        width: 27
+        height: 13
+      spriteId: 2527adca3a27b1944b94962d4a07cf42
+    - name: preview-xeno-grunt-attack_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 12
+        y: 0
+        width: 27
+        height: 13
+      spriteId: ef991ef53d8aada429cd12f8d4401419
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 128, y: 64}
