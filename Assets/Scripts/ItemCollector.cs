@@ -6,9 +6,12 @@ using TMPro;
 public class ItemCollector : MonoBehaviour
 {
     private int coin = 0;
+    private int enemy = 0;
+    private int score = 0;
 
-    [SerializeField] private TMP_Text coinText;
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private AudioSource collectEffect;
+    [SerializeField] private AudioSource enemyded;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,10 +19,26 @@ public class ItemCollector : MonoBehaviour
         {
             collectEffect.Play();
             Destroy(collision.gameObject);
-            coin++;  //coin = coin + 1;
+            coin ++;
             Debug.Log("Coin:" + coin);
-            coinText.text = coin.ToString(); // Convert integer to string before assigning
+            UpdateScore();
+            
         }
+        else if(collision.gameObject.CompareTag("WeakPoint"))
+        {
+            enemyded.Play();
+            Destroy(collision.gameObject);
+            enemy++;
+            Debug.Log("Enemy Killed" );
+            UpdateScore();
+        }
+    }
+
+    private void UpdateScore()
+    {
+        score = coin * 10 + enemy * 100; // Example scoring logic
+        if (scoreText != null)
+            scoreText.text = score.ToString();
     }
 }
 
