@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-
     private AudioSource finishSound;
     private bool levelCompleted = false;
-    // Start is called before the first frame update
+
     private void Start()
     {
         finishSound = GetComponent<AudioSource>();
@@ -16,7 +13,7 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player" && !levelCompleted)
+        if (collision.gameObject.name == "Player" && !levelCompleted)
         {
             finishSound.Play();
             levelCompleted = true;
@@ -26,8 +23,18 @@ public class Finish : MonoBehaviour
 
     private void CompleteLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
+        // Call SaveData from ItemCollector script to save game data
+        ItemCollector itemCollector = FindObjectOfType<ItemCollector>();
+        if (itemCollector != null)
+        {
+            itemCollector.SaveData();
+        }
+        else
+        {
+            Debug.LogWarning("ItemCollector reference is null. Make sure there is an ItemCollector script in the scene.");
+        }
 
+        // Load the next scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
 }
