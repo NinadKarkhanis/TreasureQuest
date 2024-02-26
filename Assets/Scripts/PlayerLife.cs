@@ -7,6 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    private ItemCollector itemCollector; // Declare itemCollector variable
 
     [SerializeField] private AudioSource dedEffect;
     [SerializeField] private float respawnTime = 3f; // Adjust the respawn time as needed
@@ -21,6 +22,7 @@ public class PlayerLife : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        itemCollector = FindObjectOfType<ItemCollector>(); // Find the ItemCollector script in the scene
 
         // Load the number of lives from PlayerPrefs
         if (PlayerPrefs.HasKey(LivesKey))
@@ -106,11 +108,22 @@ public class PlayerLife : MonoBehaviour
             // Player has no lives left, restart the game
             PlayerPrefs.DeleteKey(LivesKey); // Reset lives count
             SceneManager.LoadScene(2); // Assuming "Level1" is the name of your first level scene
+            if (itemCollector != null) // Check if itemCollector is not null
+            {
+                itemCollector.ResetScore(); // Call the ResetScore function from ItemCollector script
+            }
         }
     }
 
     private void Restartlevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ResetLives()
+    {
+        lives = 10; // Reset lives to starting value
+        UpdateLivesDisplay(); // Update lives display
+        PlayerPrefs.SetInt(LivesKey, lives); // Save the reset lives count
     }
 }
