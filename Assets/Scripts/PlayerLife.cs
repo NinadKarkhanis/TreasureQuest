@@ -9,19 +9,29 @@ public class PlayerLife : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private AudioSource dedEffect;
-    [SerializeField] private float respawnTime = 300f; // Adjust the respawn time as needed
+    [SerializeField] private float respawnTime = 3f; // Adjust the respawn time as needed
     [SerializeField] private TMP_Text timerText; // Reference to the TextMeshPro text element for displaying the timer
+    [SerializeField] private TMP_Text livesText; // Reference to the TextMeshPro text element for displaying the lives
 
     private float timer; // Variable to hold the countdown timer value
+    private int lives = 10; // Starting number of lives
+    private const string LivesKey = "PlayerLives"; // Key for PlayerPrefs
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
+
+        // Load the number of lives from PlayerPrefs
+        if (PlayerPrefs.HasKey(LivesKey))
+        {
+            lives = PlayerPrefs.GetInt(LivesKey);
+        }
+
         // Start the countdown timer
         timer = respawnTime;
         UpdateTimerDisplay();
+        UpdateLivesDisplay();
     }
 
     private void Update()
@@ -45,7 +55,16 @@ public class PlayerLife : MonoBehaviour
         // Update the UI text to display the current timer value
         if (timerText != null)
         {
-            timerText.text =  Mathf.RoundToInt(timer).ToString();
+            timerText.text = Mathf.RoundToInt(timer).ToString();
+        }
+    }
+
+    private void UpdateLivesDisplay()
+    {
+        // Update the UI text to display the current lives value
+        if (livesText != null)
+        {
+            livesText.text = "Lives: " + lives.ToString();
         }
     }
 
@@ -67,8 +86,27 @@ public class PlayerLife : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
 
-        // Start the countdown timer again after death
-        timer = respawnTime;
+        // Decrement lives
+        lives--;
+
+        // Save the updated lives count
+        PlayerPrefs.SetInt(LivesKey, lives);
+
+        // Update lives display
+        UpdateLivesDisplay();
+
+        // Check if player has remaining lives
+        if (lives > 0)
+        {
+            // Start the countdown timer again after death
+            timer = respawnTime;
+        }
+        else
+        {
+            // Player has no lives left, restart the game
+            PlayerPrefs.DeleteKey(LivesKey); // Reset lives count
+            SceneManager.LoadScene(2); // Assuming "Level1" is the name of your first level scene
+        }
     }
 
     private void Restartlevel()

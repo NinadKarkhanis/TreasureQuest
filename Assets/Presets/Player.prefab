@@ -204,13 +204,11 @@ GameObject:
   - component: {fileID: 3675948952395168722}
   - component: {fileID: 5960950392868361587}
   - component: {fileID: 7874638951778043191}
-  - component: {fileID: 3561894249912149985}
   - component: {fileID: 6772105418518494499}
   - component: {fileID: 1829095827694700481}
   - component: {fileID: 2957666266016225217}
   - component: {fileID: 6836406658657446640}
   - component: {fileID: 6552494228780042549}
-  - component: {fileID: 6333095523327220162}
   - component: {fileID: 2869781396453852631}
   m_Layer: 0
   m_Name: Player
@@ -398,21 +396,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3561894249912149985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6203586777086194279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06fd75fc742c0141b3b684ba9db5821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  collectEffect: {fileID: 2957666266016225217}
-  enemyded: {fileID: 0}
 --- !u!114 &6772105418518494499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d95393684d3df429e829ede019173f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DedEffect: {fileID: 6836406658657446640}
+  dedEffect: {fileID: 0}
+  respawnTime: 300
+  timerText: {fileID: 0}
+  livesText: {fileID: 0}
 --- !u!82 &1829095827694700481
 AudioSource:
   m_ObjectHideFlags: 0
@@ -729,19 +715,6 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   collectEffect: {fileID: 2957666266016225217}
   enemyded: {fileID: 6836406658657446640}
---- !u!114 &6333095523327220162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6203586777086194279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d95393684d3df429e829ede019173f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DedEffect: {fileID: 0}
 --- !u!82 &2869781396453852631
 AudioSource:
   m_ObjectHideFlags: 0
