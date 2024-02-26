@@ -75,6 +75,10 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
         {
             Die();
+            if (itemCollector != null) // Check if itemCollector is not null
+            {
+                itemCollector.ReduceScoreOnDeath(); // Call the reducescore function from ItemCollector script
+            }
         }
     }
 
