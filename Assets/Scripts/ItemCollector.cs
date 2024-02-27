@@ -42,6 +42,10 @@ public class ItemCollector : MonoBehaviour
             UpdateScore();
             SaveData(); // Save data whenever an enemy is defeated
         }
+        else if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
+        {
+            ReduceScoreOnDeath();
+        }
     }
 
     private void UpdateScore()
@@ -86,7 +90,7 @@ public class ItemCollector : MonoBehaviour
     public void ResetScore()
     {
         coin = 0;
-        storedCoins = 0; // Reset stored coins
+        //storedCoins = 0; // Reset stored coins
         enemy = 0;
         score = 0;
         UpdateScore();
@@ -95,8 +99,10 @@ public class ItemCollector : MonoBehaviour
 
     public void ReduceScoreOnDeath()
     {
-        score -= 50;
+        score -= 20;
         UpdateScore();
         SaveData(); // Save the reduced score
+        Debug.Log("Eepy");
+        Debug.Log("Score:"+score);
     }
 }
