@@ -114,6 +114,7 @@ public class PlayerLife : MonoBehaviour
         if (itemCollector != null)
         {
             itemCollector.ResetScore(); // Reset the score
+            Debug.Log("New score time");
         }
     }
 }
