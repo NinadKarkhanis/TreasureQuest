@@ -3167,7 +3167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d95393684d3df429e829ede019173f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DedEffect: {fileID: 0}
+  dedEffect: {fileID: 0}
+  respawnTime: 3
+  timerText: {fileID: 0}
+  livesText: {fileID: 0}
 --- !u!4 &1172175102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7247339112628918841, guid: c701153952aaed54c90e229c33a9c6bc, type: 3}

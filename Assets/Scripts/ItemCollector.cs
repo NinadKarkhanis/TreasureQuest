@@ -64,7 +64,7 @@ public class ItemCollector : MonoBehaviour
     private void UpdateHighScoreDisplay()
     {
         if (highScoreText != null)
-            highScoreText.text = "High Score: " + highScore.ToString();
+            highScoreText.text =  highScore.ToString();
     }
 
     public void SaveData()

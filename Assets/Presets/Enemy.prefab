@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 5482026729792243410}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.840001, y: 0, z: 0}
+  m_LocalPosition: {x: 5.91, y: 0, z: 0}
   m_LocalScale: {x: 0.34940004, y: 0.3205087, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 8638165015667803416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.852, y: 0, z: 0}
+  m_LocalPosition: {x: -2.46, y: 0, z: 0}
   m_LocalScale: {x: 0.34940004, y: 0.3205087, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 5623760664506881573}
   - component: {fileID: 1378477091822533613}
   - component: {fileID: 2262251142556963546}
-  - component: {fileID: 4125436802021047615}
+  - component: {fileID: 4396868202442308158}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: WeakPoint
@@ -407,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 8925576606795928719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.004, y: 0.038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -527,7 +527,7 @@ MonoBehaviour:
   - {fileID: 8638165015667803416}
   - {fileID: 5482026729792243410}
   speed: 3
---- !u!95 &4125436802021047615
+--- !u!95 &4396868202442308158
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ Animator:
   m_GameObject: {fileID: 8925576606795928719}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b12cb606b20c59a47a6034f35888a216, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7185c3826567db54b833332d87138190, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

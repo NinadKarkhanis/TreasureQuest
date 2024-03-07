@@ -9,6 +9,12 @@ public class level1 : MonoBehaviour
     public GameObject MobileUI;
 
 
+    public void Leaderboard()
+    {
+        SceneManager.LoadScene(5);
+        Time.timeScale=1; 
+    }
+
     public void LevelOne()
     {
         SceneManager.LoadScene(2);
@@ -18,6 +24,12 @@ public class level1 : MonoBehaviour
     public void LevelTwo()
     {
         SceneManager.LoadScene(3);
+        Time.timeScale=1; 
+    }
+
+    public void LevelThree()
+    {
+        SceneManager.LoadScene(4);
         Time.timeScale=1; 
     }
 
