@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI; // Need to include this for UI elements
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -75,49 +74,39 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
         {
             Die();
-           
-            
+            itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
         }
     }
 
- private void Die()
-{
-    if (dedEffect != null)
+    private void Die()
     {
-        dedEffect.Play();
-    }
-
-    rb.bodyType = RigidbodyType2D.Static;
-    anim.SetTrigger("death");
-
-    // Decrement lives
-    lives--;
-
-    // Save the updated lives count
-    PlayerPrefs.SetInt(LivesKey, lives);
-
-    // Update lives display
-    UpdateLivesDisplay();
-
-    // Check if player has remaining lives
-    if (lives > 0)
-    {
-        // Start the countdown timer again after death
-        timer = respawnTime;
-    }
-    else
-    {
-        // Player has no lives left, reset the score and restart the game
-        PlayerPrefs.DeleteKey(LivesKey); // Reset lives count
-        SceneManager.LoadScene(2); // Assuming "Level1" is the name of your first level scene
-        
-        if (itemCollector != null)
+        if (dedEffect != null)
         {
-            itemCollector.ResetScore(); // Reset the score
-            Debug.Log("New score time");
+            dedEffect.Play();
         }
+
+        rb.bodyType = RigidbodyType2D.Static;
+        anim.SetTrigger("death");
+
+        // Decrement lives
+        lives--;
+
+        // Save the updated lives count
+        PlayerPrefs.SetInt(LivesKey, lives);
+
+        // Update lives display
+        UpdateLivesDisplay();
+
+        // Check if player has remaining lives
+        if (lives <= 0)
+       {
+    // Player has no lives left, reset the score and restart the game
+       PlayerPrefs.DeleteKey(LivesKey); // Reset lives count
+       SceneManager.LoadScene(2); // Load the scene at index 1 (assuming "Scene2" is at index 1)
+      itemCollector.ResetScore(); // Reset the score
+      Debug.Log("New score time");
+       }
     }
-}
 
     private void Restartlevel()
     {
@@ -129,6 +118,5 @@ public class PlayerLife : MonoBehaviour
         lives = 10; // Reset lives to starting value
         UpdateLivesDisplay(); // Update lives display
         PlayerPrefs.SetInt(LivesKey, lives); // Save the reset lives count
-        
     }
 }

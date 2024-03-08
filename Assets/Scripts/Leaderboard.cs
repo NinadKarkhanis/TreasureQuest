@@ -9,6 +9,7 @@ public class Leaderboard : MonoBehaviour
 
     [SerializeField] private List<TextMeshProUGUI> names;
     [SerializeField] private List<TextMeshProUGUI> scores;
+    
 
     private string publicLeaderboardKey =
     "91858f230c299cc0503399b9d6597be1177dba82666641fee48362fd3fa8f014";

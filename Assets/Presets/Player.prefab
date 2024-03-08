@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
   collectEffect: {fileID: 0}
   enemyded: {fileID: 1410585579879088388}
 --- !u!82 &1410585579879088388
@@ -409,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dedEffect: {fileID: 0}
-  respawnTime: 300
+  respawnTime: 250
   timerText: {fileID: 0}
   livesText: {fileID: 0}
 --- !u!82 &1829095827694700481
@@ -713,6 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
   collectEffect: {fileID: 2957666266016225217}
   enemyded: {fileID: 6836406658657446640}
 --- !u!82 &2869781396453852631

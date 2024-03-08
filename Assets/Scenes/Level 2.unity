@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 0.7
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -5797,7 +5797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 0.7
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -10206,7 +10206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 1129871923}
-  MobileUI: {fileID: 0}
+  MobileUI: {fileID: 865425090}
 --- !u!114 &2110450963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41461,6 +41461,10 @@ PrefabInstance:
       propertyPath: enemyded
       value: 
       objectReference: {fileID: 1896387111980161967}
+    - target: {fileID: 5960950392868361587, guid: 874caf67c652a304da687649357bd68f, type: 3}
+      propertyPath: moveSpeed
+      value: 512.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6186206166766360855, guid: 874caf67c652a304da687649357bd68f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.27
