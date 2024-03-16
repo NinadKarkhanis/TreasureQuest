@@ -12,7 +12,7 @@ public class Leaderboard : MonoBehaviour
     
 
     private string publicLeaderboardKey =
-    "91858f230c299cc0503399b9d6597be1177dba82666641fee48362fd3fa8f014";
+    "92460860617ed27b4e42d28fad9b38bc000438f65f4158a188ce3f321c277eb2";
 
     public void Start(){
         GetLeaderboard();

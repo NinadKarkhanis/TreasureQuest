@@ -8,6 +8,9 @@ TagManager:
   - Trap
   - Enemy
   - WeakPoint
+  - FinalFinish
+  - Ladder
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Ladder
   - 
   - 
   - 

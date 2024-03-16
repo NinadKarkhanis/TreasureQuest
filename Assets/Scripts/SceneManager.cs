@@ -7,11 +7,31 @@ public class level1 : MonoBehaviour
 {
     public GameObject PausePanel;
     public GameObject MobileUI;
+    public GameObject Leaderboardscore;
+    public GameObject MoreLeaderboard;
+    ItemCollector itemCollector;
 
+    public void Start()
+    {
+        itemCollector = FindObjectOfType<ItemCollector>();
+    }
 
     public void Leaderboard()
     {
         SceneManager.LoadScene(5);
+        Time.timeScale=1; 
+    }
+
+    public void GameStart()
+    {
+        itemCollector.ResetScore();
+        SceneManager.LoadScene(8); 
+        Time.timeScale=1;
+    }
+
+    public void Timeboard()
+    {
+        SceneManager.LoadScene(7);
         Time.timeScale=1; 
     }
 
@@ -51,6 +71,19 @@ public class level1 : MonoBehaviour
         MobileUI.SetActive(false);
         Time.timeScale=0;
     }
+
+    public void MoreScore()
+    {
+        Leaderboardscore.SetActive(false);
+        MoreLeaderboard.SetActive(true);
+    }
+
+    public void NoMoreScore()
+    {
+        Leaderboardscore.SetActive(true);
+        MoreLeaderboard.SetActive(false);
+    }
+
 
     public void Continue()
     {

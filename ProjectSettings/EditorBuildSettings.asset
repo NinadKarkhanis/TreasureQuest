@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level blank.unity
     guid: 3dfe7fa3da16cb948888c47f256761da
+  - enabled: 1
+    path: Assets/Scenes/TimeBoard.unity
+    guid: 2c8ae127b970c4240b58130bfda84c76
+  - enabled: 1
+    path: Assets/Scenes/CompleteLevel.unity
+    guid: a822d68fc5ff97e419cc8a831257af8f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: ae38c68332f7b774c8b926298eb3e358, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 91bb7934385bf0346b41b0a9965c70b2, type: 2}

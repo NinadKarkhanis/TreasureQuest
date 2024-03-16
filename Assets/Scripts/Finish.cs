@@ -3,18 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
+    ItemCollector itemCollector;
     private AudioSource finishSound;
     private bool levelCompleted = false;
+    SpeedrunManager speedrun;
+
 
     private void Start()
     {
         finishSound = GetComponent<AudioSource>();
+        itemCollector = FindObjectOfType<ItemCollector>();
+        speedrun = FindObjectOfType<SpeedrunManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player" && !levelCompleted)
         {
+            speedrun.CompleteSpeedrun();
             finishSound.Play();
             levelCompleted = true;
             CompleteLevel();
@@ -24,17 +30,8 @@ public class Finish : MonoBehaviour
     private void CompleteLevel()
     {
         // Call SaveData from ItemCollector script to save game data
-        ItemCollector itemCollector = FindObjectOfType<ItemCollector>();
-        if (itemCollector != null)
-        {
-            itemCollector.SaveData();
-        }
-        else
-        {
-            Debug.LogWarning("ItemCollector reference is null. Make sure there is an ItemCollector script in the scene.");
-        }
-
+        itemCollector.SaveData();
         // Load the next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(7); 
     }
 }

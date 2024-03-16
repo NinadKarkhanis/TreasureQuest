@@ -75,13 +75,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Jump()
+{
+    if (IsGrounded())
     {
-        if (IsGrounded())
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        jumpSoundEffect.Play();
+    }
+    else
+    {
+        // Check if colliding with ladder
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(coll.bounds.center, coll.bounds.size, 0f, LayerMask.GetMask("Ladder"));
+        if (colliders.Length > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            // Change jump force to 500
+            rb.velocity = new Vector2(rb.velocity.x, 20f);
             jumpSoundEffect.Play();
         }
     }
+}
 
     private bool IsGrounded()
     {
