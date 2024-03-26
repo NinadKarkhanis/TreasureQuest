@@ -29,6 +29,13 @@ public class level1 : MonoBehaviour
         Time.timeScale=1;
     }
 
+    public void MultiLoading()
+    {
+        itemCollector.ResetScore();
+        SceneManager.LoadScene(9); 
+        Time.timeScale=1;
+    }
+
     public void Timeboard()
     {
         SceneManager.LoadScene(7);
