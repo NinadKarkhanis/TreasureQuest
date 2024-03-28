@@ -86,7 +86,7 @@ public class PlayerLife : MonoBehaviour
         if (!isRespawning && (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy")))
         {
             Die();
-            itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
+            //itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
         }
     }
 

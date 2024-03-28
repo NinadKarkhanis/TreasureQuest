@@ -22,19 +22,21 @@ public class level1 : MonoBehaviour
         Time.timeScale=1; 
     }
 
+    public void cutscene()
+    {
+        //itemCollector.ResetScore();
+        SceneManager.LoadScene(11); 
+        Time.timeScale=1;
+    }
+
     public void GameStart()
     {
-        itemCollector.ResetScore();
+        //itemCollector.ResetScore();
         SceneManager.LoadScene(8); 
         Time.timeScale=1;
     }
 
-    public void MultiLoading()
-    {
-        itemCollector.ResetScore();
-        SceneManager.LoadScene(9); 
-        Time.timeScale=1;
-    }
+  
 
     public void Timeboard()
     {
@@ -69,6 +71,12 @@ public class level1 : MonoBehaviour
     public void StartScreen()
     {
         SceneManager.LoadScene(0); 
+        Time.timeScale=1;
+    }
+
+    public void TutorialScreen()
+    {
+        SceneManager.LoadScene(9); 
         Time.timeScale=1;
     }
 

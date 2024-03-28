@@ -94,15 +94,15 @@ public class ItemCollector : MonoBehaviour
         Debug.Log("Score Reset");
     }
 
-    public void ReduceScoreOnDeath()
-    {
-        score -= 100;
-        if (score < 0) // Ensure score never goes below zero
-        {
-            score = 0;
-        }
-        UpdateScore();
-        SaveData(); // Save the reduced score
-        Debug.Log("Score reduced: " + score);
-    }
+    // public void ReduceScoreOnDeath()
+    // {
+    //     score -= 100;
+    //     if (score < 0) // Ensure score never goes below zero
+    //     {
+    //         score = 0;
+    //     }
+    //     UpdateScore();
+    //     SaveData(); // Save the reduced score
+    //     Debug.Log("Score reduced: " + score);
+    // }
 }

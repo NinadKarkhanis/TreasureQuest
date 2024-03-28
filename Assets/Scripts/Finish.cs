@@ -32,6 +32,6 @@ public class Finish : MonoBehaviour
         // Call SaveData from ItemCollector script to save game data
         itemCollector.SaveData();
         // Load the next scene
-        SceneManager.LoadScene(7); 
+        SceneManager.LoadScene(12); 
     }
 }

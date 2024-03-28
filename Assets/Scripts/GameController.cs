@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
 
     private void Die()
     {
-        itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
+        //itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
         if (dedEffect != null)
         {
             dedEffect.Play();

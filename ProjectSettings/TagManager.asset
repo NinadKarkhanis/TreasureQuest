@@ -11,6 +11,7 @@ TagManager:
   - FinalFinish
   - Ladder
   - Checkpoint
+  - Teleporter
   layers:
   - Default
   - TransparentFX

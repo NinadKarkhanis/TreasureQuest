@@ -12,7 +12,7 @@ public class Timeboard : MonoBehaviour
     
 
     private string publicLeaderboardKey =
-    "1e11dd19cf130553c66f27e92c3e0edb16e3ed094c576c5237aab70c105b54dc";
+    "19dc81ff608842c5d387049d5124725f0416b7df2cd35bdad1db872d85eb3b6c";
 
     public void Start(){
         GetLeaderboard();
