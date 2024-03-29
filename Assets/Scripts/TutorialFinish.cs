@@ -20,7 +20,7 @@ public class TutorialFinish : MonoBehaviour
     {
         if (collision.gameObject.name == "Player" && !levelCompleted)
         {
-            speedrun.CompleteSpeedrun();
+            //speedrun.CompleteSpeedrun();
             finishSound.Play();
             levelCompleted = true;
             CompleteLevel();
@@ -32,6 +32,6 @@ public class TutorialFinish : MonoBehaviour
         // Call SaveData from ItemCollector script to save game data
         itemCollector.ResetScore();
         // Load the next scenes
-        SceneManager.LoadScene(11); 
+        SceneManager.LoadScene(10); 
     }
 }

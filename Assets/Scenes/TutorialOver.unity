@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 169728696}
   - component: {fileID: 169728695}
   m_Layer: 5
-  m_Name: YEs
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 1364454907}
   - component: {fileID: 1364454908}
   m_Layer: 5
-  m_Name: NO
+  m_Name: Start Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,7 +995,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1364454907}
         m_TargetAssemblyTypeName: level1, Assembly-CSharp
-        m_MethodName: GameStart
+        m_MethodName: cutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
