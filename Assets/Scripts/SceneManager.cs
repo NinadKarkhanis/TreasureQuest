@@ -18,21 +18,21 @@ public class level1 : MonoBehaviour
 
     public void Leaderboard()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(1);
         Time.timeScale=1; 
     }
 
     public void cutscene()
     {
         //itemCollector.ResetScore();
-        SceneManager.LoadScene(11); 
+        SceneManager.LoadScene(7); 
         Time.timeScale=1;
     }
 
     public void GameStart()
     {
         //itemCollector.ResetScore();
-        SceneManager.LoadScene(8); 
+        SceneManager.LoadScene(4); 
         Time.timeScale=1;
     }
 
@@ -40,33 +40,11 @@ public class level1 : MonoBehaviour
 
     public void Timeboard()
     {
-        SceneManager.LoadScene(7);
-        Time.timeScale=1; 
-    }
-
-    public void LevelOne()
-    {
-        SceneManager.LoadScene(2);
-        Time.timeScale=1; 
-    }
-
-    public void LevelTwo()
-    {
         SceneManager.LoadScene(3);
         Time.timeScale=1; 
     }
 
-    public void LevelThree()
-    {
-        SceneManager.LoadScene(4);
-        Time.timeScale=1; 
-    }
-
-    public void LevelSelection()
-    {
-        SceneManager.LoadScene(1); 
-        Time.timeScale=1;
-    }
+   
 
     public void StartScreen()
     {
@@ -76,7 +54,7 @@ public class level1 : MonoBehaviour
 
     public void TutorialScreen()
     {
-        SceneManager.LoadScene(9); 
+        SceneManager.LoadScene(5); 
         Time.timeScale=1;
     }
 

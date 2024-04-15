@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1336595911503233624, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_Size.x
-      value: 1.6313148
+      value: 1.645778
       objectReference: {fileID: 0}
     - target: {fileID: 1336595911503233624, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_Size.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1336595911503233624, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_Offset.x
-      value: 0.08433017
+      value: 0.07709861
       objectReference: {fileID: 0}
     - target: {fileID: 1336595911503233624, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_Offset.y
@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703484738009534742, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 301.66748
+      value: 929.3682
       objectReference: {fileID: 0}
     - target: {fileID: 3703484738009534742, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.650991
+      value: 8.55365
       objectReference: {fileID: 0}
     - target: {fileID: 3703484738009534742, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.432419
+      value: 0.5420294
       objectReference: {fileID: 0}
     - target: {fileID: 3703484738009534742, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalRotation.w
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4600744521396301411, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.52
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 4600744521396301411, guid: a5374b4f5866066448490d8eb8716231, type: 3}
       propertyPath: m_LocalPosition.y
@@ -172,6 +172,7 @@ PrefabInstance:
     - {fileID: 8637732064657762070, guid: a5374b4f5866066448490d8eb8716231, type: 3}
     - {fileID: 3060397754086350019, guid: a5374b4f5866066448490d8eb8716231, type: 3}
     - {fileID: 8909619545263019112, guid: a5374b4f5866066448490d8eb8716231, type: 3}
+    - {fileID: 7187938733906168264, guid: a5374b4f5866066448490d8eb8716231, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -213,10 +214,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041411996, y: -0.06539336}
+  m_Offset: {x: 0.069232404, y: -0.05967632}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -227,5 +228,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8853489, y: 0.3770253}
+  m_Size: {x: 1.7793783, y: 0.441814}
   m_EdgeRadius: 0
