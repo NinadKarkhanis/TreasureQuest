@@ -19,7 +19,13 @@ Get ready for an epic journey by downloading Treasure Quest from the following l
 - **Unity Game Engine**: Powering the immersive gameplay experience.
 - **C# Programming**: Utilized for game development.
 - **Danial Jumagaliyev**: For the leaderboard package implementation.
-- **[ceasonal](https://github.com/ceasonal)**: Making and hosting of website.
+- **[Shawn Wadhwa](https://github.com/ceasonal)**: Making and hosting of website.
+
+## Game Testers
+--**[Shawn Wadhwa](https://github.com/ceasonal)**
+--**[Kaustubh Bhosale](https://github.com/Sipher2003)**
+--**[Siddh Ahire](https://github.com/siddh0)**
+
 
 ## License
 
