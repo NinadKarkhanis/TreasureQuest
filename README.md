@@ -25,6 +25,7 @@ Get ready for an epic journey by downloading Treasure Quest from the following l
 - **[Shawn Wadhwa](https://github.com/ceasonal)**
 - **[Kaustubh Bhosale](https://github.com/Sipher2003)**
 - **[Siddh Ahire](https://github.com/siddh0)**
+- **[Tejas Vartak](https://github.com/crizmo)**
 
 
 ## License
