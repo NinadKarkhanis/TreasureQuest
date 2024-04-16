@@ -20,12 +20,16 @@ Get ready for an epic journey by downloading Treasure Quest from the following l
 - **C# Programming**: Utilized for game development.
 - **Danial Jumagaliyev**: For the leaderboard package implementation.
 - **[Shawn Wadhwa](https://github.com/ceasonal)**: Making and hosting of website.
+- **Ishita Khandekar**: Helping out with game poster.
 
 ## Game Testers
 - **[Shawn Wadhwa](https://github.com/ceasonal)**
 - **[Kaustubh Bhosale](https://github.com/Sipher2003)**
 - **[Siddh Ahire](https://github.com/siddh0)**
 - **[Tejas Vartak](https://github.com/crizmo)**
+- **[Viraj Panickar](https://github.com/TheZeronet)**
+
+##
 
 
 ## License
@@ -43,6 +47,8 @@ We value your feedback! If you have any suggestions, ideas, or encounter any iss
 ---
 
 **Note**: Treasure Quest is an college project, which is completed you might find bugs in it but this was my first complete game. I hope everyone enjoys my game !
-![backpdf](https://github.com/Nnknoob/TreasureQuest/assets/95896935/cceb2c36-f64e-4e9c-a539-13168d241b73)
 
+**Here is a poster for Treasure Quest:**
+
+![github](https://github.com/Nnknoob/TreasureQuest/assets/95896935/8188eaf7-2d31-4ecf-a112-900b1cfd1b67)
 
