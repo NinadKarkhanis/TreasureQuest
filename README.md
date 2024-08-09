@@ -20,7 +20,7 @@ Get ready for an epic journey by downloading Treasure Quest from the following l
 - **C# Programming**: Utilized for game development.
 - **Danial Jumagaliyev**: For the leaderboard package implementation.
 - **[Shawn Wadhwa](https://github.com/ceasonal)**: Making and hosting of website.
-- **Ishita Khandekar**: Helping out with game poster.
+- **Ishita Khandekar**: Designing game poster.
 
 ## Game Testers
 - **[Shawn Wadhwa](https://github.com/ceasonal)**
