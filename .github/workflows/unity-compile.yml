@@ -1,0 +1,74 @@
+name: Treasure Quest - Unity compile and build
+
+on:
+  push:
+    branches: [feature/race-multiplayer-and-gameplay-polish]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+
+concurrency:
+  group: treasurequest-unity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  project-checks:
+    name: Unity project preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify scenes and Unity metadata
+        run: python3 scripts/validate_unity_project.py
+
+  unity-compile:
+    name: Unity 2022.3.16f1 Linux build
+    needs: project-checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Check Unity license availability
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        shell: bash
+        run: |
+          if [[ -z "$UNITY_EMAIL" || -z "$UNITY_PASSWORD" || ( -z "$UNITY_LICENSE" && -z "$UNITY_SERIAL" ) ]]; then
+            echo "::error title=Unity activation needed::Set UNITY_LICENSE (or UNITY_SERIAL), UNITY_EMAIL and UNITY_PASSWORD in repository Actions secrets; see Docs/UNITY_CI.md."
+            exit 1
+          fi
+          echo "Activation secrets are present (values never printed)."
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: unity-2022.3.16f1-linux-${{ hashFiles('Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            unity-2022.3.16f1-linux-
+      - name: Compile and build the game
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          unityVersion: 2022.3.16f1
+          targetPlatform: StandaloneLinux64
+          buildName: TreasureQuest
+          buildsPath: build
+      - name: Upload built game
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TreasureQuest-Linux-${{ github.sha }}
+          path: build/
+          retention-days: 7
+          if-no-files-found: error
