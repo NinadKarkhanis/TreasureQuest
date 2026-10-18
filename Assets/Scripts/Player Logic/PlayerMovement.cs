@@ -1,122 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(SpriteRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
-    InputSystem controls; // Reference to InputSystem actions
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component
-    private BoxCollider2D coll; // Reference to the BoxCollider2D component
-    private SpriteRenderer sprite; // Reference to the SpriteRenderer component
-    private Animator anim; // Reference to the Animator component
-    private float dirX = 0f; // Movement direction along the X-axis
+    private InputSystem controls;
+    private Rigidbody2D body;
+    private BoxCollider2D box;
+    private SpriteRenderer sprite;
+    private Animator animator;
+    private float horizontal;
+    private float jumpQueuedUntil = -1f;
+    private float coyoteUntil = -1f;
 
-    [SerializeField] private float moveSpeed = 7f; // Movement speed
-    [SerializeField] private float jumpForce = 14f; // Force applied when jumping
-    [SerializeField] private LayerMask jumpableGround; // Layers considered as ground for jumping
+    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private float jumpForce = 14f;
+    [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField, Range(0f, .25f)] private float jumpBufferSeconds = .12f;
+    [SerializeField, Range(0f, .25f)] private float coyoteSeconds = .10f;
 
-    [SerializeField] private AudioSource jumpSoundEffect; // Sound effect for jumping
-
-    void Awake()
+    private void Awake()
     {
-        // Initialize InputSystem controls
+        body = GetComponent<Rigidbody2D>();
+        box = GetComponent<BoxCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         controls = new InputSystem();
-        controls.Enable();
-
-        // Assign actions to events
-        controls.Land.Movement.performed += ctx => dirX = ctx.ReadValue<float>();
-        controls.Land.Movement.canceled += ctx => dirX = 0f;
-
-        controls.Land.Jump.performed += ctx => Jump();
+        controls.Land.Movement.performed += ctx => horizontal = ctx.ReadValue<float>();
+        controls.Land.Movement.canceled += ctx => horizontal = 0f;
+        controls.Land.Jump.performed += ctx => jumpQueuedUntil = Time.time + jumpBufferSeconds;
     }
 
-    private void Start()
-    {
-        // Initialize component references
-        coll = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
-        sprite = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
-        anim = GetComponent<Animator>(); // Get the Animator component
-    }
+    private void OnEnable() { if (controls != null) controls.Enable(); }
+    private void OnDisable() { if (controls != null) controls.Disable(); horizontal = 0f; }
+    private void OnDestroy() { if (controls != null) controls.Dispose(); }
 
     private void Update()
     {
-        // Move the player horizontally
-        rb.velocity = new Vector2(dirX * moveSpeed * Time.deltaTime, rb.velocity.y);
-
-        // Check if the player is on the ground and not moving vertically
-        if (IsGrounded() && rb.velocity.y == 0)
+        bool grounded = IsGrounded();
+        if (grounded) coyoteUntil = Time.time + coyoteSeconds;
+        if (jumpQueuedUntil >= Time.time && coyoteUntil >= Time.time)
         {
-            anim.SetBool("IsJumping", false); // Set the "IsJumping" parameter in the animator to false
+            PerformJump(jumpForce);
+            jumpQueuedUntil = -1f;
+            coyoteUntil = -1f;
         }
-        else
+        else if (jumpQueuedUntil >= Time.time && IsOnLadder())
         {
-            anim.SetBool("IsJumping", true); // Set the "IsJumping" parameter in the animator to true
+            PerformJump(20f);
+            jumpQueuedUntil = -1f;
         }
 
-        // Update animation state based on movement direction
-        UpdateAnimationState();
+        if (horizontal > 0) sprite.flipX = false;
+        else if (horizontal < 0) sprite.flipX = true;
+        if (animator != null)
+        {
+            animator.SetInteger("state", Mathf.Abs(horizontal) > .01f ? 1 : 0);
+            animator.SetBool("IsJumping", !grounded);
+        }
     }
 
-    private void UpdateAnimationState()
+    private void FixedUpdate()
     {
-        MovementState state; // Variable to store the current movement state
-        if (dirX > 0f)
-        {
-            state = MovementState.running; // Player is moving right
-            sprite.flipX = false; // Flip the sprite to face right
-        }
-        else if (dirX < 0f)
-        {
-            state = MovementState.running; // Player is moving left
-            sprite.flipX = true; // Flip the sprite to face left
-        }
-        else
-        {
-            state = MovementState.idle; // Player is not moving horizontally
-        }
-
-        // Set the animation state in the animator
-        anim.SetInteger("state", (int)state);
+        // Earlier prefabs stored speed 300 because movement multiplied velocity by deltaTime.
+        float unitsPerSecond = moveSpeed > 50f ? moveSpeed * .02f : moveSpeed;
+        body.velocity = new Vector2(horizontal * unitsPerSecond, body.velocity.y);
     }
 
-    void Jump()
+    private void PerformJump(float force)
     {
-        if (IsGrounded()) // Check if the player is grounded
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce); // Apply upward force to jump
-            jumpSoundEffect.Play(); // Play the jump sound effect
-        }
-        else
-        {
-            // Check if colliding with a ladder
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(coll.bounds.center, coll.bounds.size, 0f, LayerMask.GetMask("Ladder"));
-            if (colliders.Length > 0)
-            {
-                // Apply a higher jump force if colliding with a ladder
-                rb.velocity = new Vector2(rb.velocity.x, 20f);
-                jumpSoundEffect.Play(); // Play the jump sound effect
-            }
-        }
+        body.velocity = new Vector2(body.velocity.x, force);
+        if (jumpSoundEffect != null) jumpSoundEffect.Play();
     }
-
+    private bool IsOnLadder()
+    {
+        return Physics2D.OverlapBox(box.bounds.center, box.bounds.size, 0,
+            LayerMask.GetMask("Ladder")) != null;
+    }
     private bool IsGrounded()
     {
-        // Check if there's ground beneath the player using a boxcast
-        RaycastHit2D raycastHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-        return raycastHit.collider != null; // Return true if ground is detected
+        return Physics2D.BoxCast(box.bounds.center, box.bounds.size, 0, Vector2.down,
+            .12f, jumpableGround).collider != null;
     }
-
-    private void OnEnable()
-    {
-        controls.Enable(); // Enable InputSystem controls
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable(); // Disable InputSystem controls
-    }
-
-    private enum MovementState { idle, running, jumping, falling } // Enumeration representing different movement states
 }

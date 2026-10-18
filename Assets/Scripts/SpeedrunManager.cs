@@ -36,6 +36,7 @@ public class SpeedrunManager : MonoBehaviour
             // Update the best time if the current time is better
             bestTime = currentTime;
             PlayerPrefs.SetFloat(BestTimeKey, bestTime);
+            PlayerPrefs.Save();
             UpdateBestTimeDisplay();
         }
 
@@ -56,6 +57,7 @@ public class SpeedrunManager : MonoBehaviour
 
     private void UpdateBestTimeDisplay()
     {
+        if (bestTimeText == null) return;
         if (bestTime == Mathf.Infinity)
         {
             bestTimeText.text = "Not set yet";

@@ -28,7 +28,6 @@ public class SceneTimer : MonoBehaviour
                 elapsedTime += Time.deltaTime;
 
             // Display the elapsed time
-            Debug.Log("Elapsed Time: " + elapsedTime.ToString("F2") + " seconds");
 
             yield return null;
         }
@@ -59,7 +58,8 @@ public class SceneTimer : MonoBehaviour
             if (bestTimePrefab != null)
             {
                 // Assuming the prefab has a Text component to display the time
-                bestTimePrefab.GetComponent<UnityEngine.UI.Text>().text = bestTime.ToString("F2");
+                var label = bestTimePrefab.GetComponent<UnityEngine.UI.Text>();
+                if (label != null) label.text = bestTime.ToString("F2");
             }
         }
     }
