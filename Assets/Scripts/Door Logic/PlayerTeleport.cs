@@ -1,53 +1,38 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
-    public Button teleportButton; // Reference to your UI Button
+    [SerializeField] private Button teleportButton;
 
-    void Start()
+    private void OnEnable()
     {
-        // Assuming you've assigned the Button reference in the Inspector, you can add the onClick event listener here
-        if (teleportButton != null)
-        {
-            teleportButton.onClick.AddListener(TeleportPlayer);
-        }
+        if (teleportButton != null) teleportButton.onClick.AddListener(TeleportPlayer);
     }
-
-    void Update()
+    private void OnDisable()
     {
-        // Check for keyboard input (E key) to teleport
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+        if (teleportButton != null) teleportButton.onClick.RemoveListener(TeleportPlayer);
+    }
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             TeleportPlayer();
-        }
     }
-
     public void TeleportPlayer()
     {
-        if (currentTeleporter != null)
-        {
-            transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
-        }
+        if (currentTeleporter == null) return;
+        Teleporter teleporter = currentTeleporter.GetComponent<Teleporter>();
+        if (teleporter == null || teleporter.GetDestination() == null) return;
+        transform.position = teleporter.GetDestination().position;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Teleporter"))
-        {
-            currentTeleporter = collision.gameObject;
-        }
+        if (other.CompareTag("Teleporter")) currentTeleporter = other.gameObject;
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.CompareTag("Teleporter"))
-        {
-            if (collision.gameObject == currentTeleporter)
-            {
-                currentTeleporter = null;
-            }
-        }
+        if (other.gameObject == currentTeleporter) currentTeleporter = null;
     }
 }

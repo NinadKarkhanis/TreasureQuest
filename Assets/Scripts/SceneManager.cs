@@ -1,87 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Legacy class name is retained so existing Unity scene bindings remain intact.
 public class level1 : MonoBehaviour
 {
     public GameObject PausePanel;
     public GameObject MobileUI;
     public GameObject Leaderboardscore;
     public GameObject MoreLeaderboard;
-    ItemCollector itemCollector;
 
-    public void Start()
+    public void Leaderboard() { Load("Leaderboard"); }
+    public void cutscene() { Load("VideoStart"); }
+    public void GameStart() { Load("CompleteLevel"); }
+    public void Timeboard() { Load("TimeBoard"); }
+    public void StartScreen() { Load("Start_Screen"); }
+    public void TutorialScreen() { Load("Tutorial"); }
+
+    private static void Load(string scene)
     {
-        itemCollector = FindObjectOfType<ItemCollector>();
-    }
-
-    public void Leaderboard()
-    {
-        SceneManager.LoadScene(1);
-        Time.timeScale=1; 
-    }
-
-    public void cutscene()
-    {
-        //itemCollector.ResetScore();
-        SceneManager.LoadScene(7); 
-        Time.timeScale=1;
-    }
-
-    public void GameStart()
-    {
-        //itemCollector.ResetScore();
-        SceneManager.LoadScene(4); 
-        Time.timeScale=1;
-    }
-
-  
-
-    public void Timeboard()
-    {
-        SceneManager.LoadScene(3);
-        Time.timeScale=1; 
-    }
-
-   
-
-    public void StartScreen()
-    {
-        SceneManager.LoadScene(0); 
-        Time.timeScale=1;
-    }
-
-    public void TutorialScreen()
-    {
-        SceneManager.LoadScene(5); 
-        Time.timeScale=1;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(scene);
     }
 
     public void Pause()
     {
-        PausePanel.SetActive(true);
-        MobileUI.SetActive(false);
-        Time.timeScale=0;
+        if (PausePanel != null) PausePanel.SetActive(true);
+        if (MobileUI != null) MobileUI.SetActive(false);
+        Time.timeScale = 0f;
     }
-
-    public void MoreScore()
-    {
-        Leaderboardscore.SetActive(false);
-        MoreLeaderboard.SetActive(true);
-    }
-
-    public void NoMoreScore()
-    {
-        Leaderboardscore.SetActive(true);
-        MoreLeaderboard.SetActive(false);
-    }
-
-
     public void Continue()
     {
-        PausePanel.SetActive(false);
-        MobileUI.SetActive(true);
-        Time.timeScale=1;
+        if (PausePanel != null) PausePanel.SetActive(false);
+        if (MobileUI != null) MobileUI.SetActive(true);
+        Time.timeScale = 1f;
     }
-} 
+    public void MoreScore()
+    {
+        if (Leaderboardscore != null) Leaderboardscore.SetActive(false);
+        if (MoreLeaderboard != null) MoreLeaderboard.SetActive(true);
+    }
+    public void NoMoreScore()
+    {
+        if (Leaderboardscore != null) Leaderboardscore.SetActive(true);
+        if (MoreLeaderboard != null) MoreLeaderboard.SetActive(false);
+    }
+}

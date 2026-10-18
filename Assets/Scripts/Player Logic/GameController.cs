@@ -1,147 +1,152 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class GameController : MonoBehaviour
 {
-    Vector2 CheckpointPos;
-    Rigidbody2D playerRb;
-    SpriteRenderer spriteRenderer;
-    ItemCollector itemCollector;
+    private const int StartingLives = 10;
+    private const float TimeLimitSeconds = 600f;
+    private const string SaveScene = "TreasureQuest.SaveScene";
+    private const string SaveX = "TreasureQuest.CheckpointX";
+    private const string SaveY = "TreasureQuest.CheckpointY";
+    private const string SaveLives = "TreasureQuest.Lives";
+
+    private Vector2 checkpointPosition;
+    private Rigidbody2D body;
+    private SpriteRenderer sprite;
+    private ItemCollector collector;
+    private Vector3 originalScale;
+    private Color originalColor;
+    private bool dying;
+    private bool ending;
+    private int lives = StartingLives;
+    private float remainingSeconds = TimeLimitSeconds;
+    private int lastDisplayedSeconds = -1;
 
     [SerializeField] private AudioSource dedEffect;
-    [SerializeField] private TMP_Text livesText; // Reference to the TextMeshPro text element for displaying the lives
-    [SerializeField] private TMP_Text timerText; // Reference to the TextMeshPro text element for displaying the timer
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject deathGameObject;
 
-    private int lives = 10; // Starting number of lives
-    private float timer = 600f; // Timer set to 600 seconds (10 minutes)
-    private bool isTimerRunning = true; // Flag to control timer state
-
     private void Awake()
-    {   
-        playerRb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        itemCollector = FindObjectOfType<ItemCollector>();
+    {
+        body = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        collector = FindObjectOfType<ItemCollector>();
+        originalScale = transform.localScale;
+        originalColor = sprite.color;
     }
 
     private void Start()
     {
-        CheckpointPos = transform.position;
+        checkpointPosition = transform.position;
+        if (PlayerPrefs.GetString(SaveScene, "") == SceneManager.GetActiveScene().name)
+        {
+            lives = Mathf.Clamp(PlayerPrefs.GetInt(SaveLives, StartingLives), 1, StartingLives);
+            checkpointPosition = new Vector2(PlayerPrefs.GetFloat(SaveX, checkpointPosition.x),
+                PlayerPrefs.GetFloat(SaveY, checkpointPosition.y));
+            transform.position = checkpointPosition;
+        }
         UpdateLivesDisplay();
         UpdateTimerDisplay();
-        StartCoroutine(StartTimer());
     }
 
-    private IEnumerator StartTimer()
+    private void Update()
     {
-        while (timer > 0 && isTimerRunning)
-        {
-            yield return new WaitForSeconds(1f);
-            timer -= 1f;
-            UpdateTimerDisplay();
-        }
-
-        if (timer <= 0)
-        {
-            // Timer has expired, restart the game
-            RestartGame();
-        }
+        if (ending) return;
+        remainingSeconds = Mathf.Max(0f, remainingSeconds - Time.deltaTime);
+        UpdateTimerDisplay();
+        if (remainingSeconds <= 0f) RestartGame();
     }
 
     private void UpdateTimerDisplay()
     {
-        // Update the UI text to display the current timer value
-        if (timerText != null)
-        {
-            timerText.text =  Mathf.RoundToInt(timer).ToString();
-        }
+        if (timerText == null) return;
+        int seconds = Mathf.CeilToInt(remainingSeconds);
+        if (lastDisplayedSeconds == seconds) return;
+        lastDisplayedSeconds = seconds;
+        timerText.text = string.Format("{0:00}:{1:00}", seconds / 60, seconds % 60);
     }
-
-    private void UpdateLivesDisplay()
-    {
-        // Update the UI text to display the current lives value
-        if (livesText != null)
-        {
-            livesText.text =  lives.ToString();
-        }
-    }
+    private void UpdateLivesDisplay() { if (livesText != null) livesText.text = lives.ToString(); }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
-        }
+        if (!ending && !dying && (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy")))
+            StartCoroutine(HandleDeath());
     }
 
-    public void UpdateCheckpoint(Vector2 pos)
+    public void UpdateCheckpoint(Vector2 position)
     {
-        CheckpointPos = pos;
+        if (ending || dying) return;
+        checkpointPosition = position;
+        SaveCheckpoint();
     }
 
-    private void Die()
+    private void SaveCheckpoint()
     {
-        if (deathGameObject != null)
-        {
-            StartCoroutine(ActivateAndDeactivateForDuration(deathGameObject, 0.5f));
-        }
-        //itemCollector.ReduceScoreOnDeath(); // Call ReduceScoreOnDeath method
-        if (dedEffect != null)
-        {
-            dedEffect.Play();
-        }
+        PlayerPrefs.SetString(SaveScene, SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetFloat(SaveX, checkpointPosition.x);
+        PlayerPrefs.SetFloat(SaveY, checkpointPosition.y);
+        PlayerPrefs.SetInt(SaveLives, lives);
+        PlayerPrefs.Save();
+    }
 
-        // Decrement lives
-        lives--;
-
-        // Update lives display
+    private IEnumerator HandleDeath()
+    {
+        dying = true; // Prevent the same enemy from taking multiple lives per collision/physics frame.
+        lives = Mathf.Max(0, lives - 1);
         UpdateLivesDisplay();
-
-        if (lives <= 0)
+        if (collector != null) collector.ReduceScoreOnDeath();
+        if (dedEffect != null) dedEffect.Play();
+        if (deathGameObject != null) deathGameObject.SetActive(true);
+        if (lives == 0)
         {
-            // Player has no lives left, restart the game
+            yield return new WaitForSeconds(.45f);
             RestartGame();
+            yield break;
         }
-        else
-        {
-            StartCoroutine(Respawn(0.5f));
-           
-        }
-    }
-
-    private IEnumerator ActivateAndDeactivateForDuration(GameObject gameObject, float duration)
-{
-    gameObject.SetActive(true);
-    yield return new WaitForSeconds(duration);
-    gameObject.SetActive(false);
-}
-
-    private IEnumerator Respawn(float duration)
-    {
-        playerRb.simulated = false;
-        playerRb.velocity = Vector2.zero;
-        transform.localScale = Vector3.zero;
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(duration);
-        transform.position = CheckpointPos;
-        transform.localScale = Vector3.one;
-        spriteRenderer.color = Color.white;
-        playerRb.simulated = true;
+        SaveCheckpoint();
+        body.velocity = Vector2.zero;
+        body.simulated = false;
+        sprite.color = Color.red;
+        transform.localScale = originalScale * .1f;
+        yield return new WaitForSeconds(.5f);
+        transform.position = checkpointPosition;
+        transform.localScale = originalScale;
+        sprite.color = originalColor;
+        body.velocity = Vector2.zero;
+        body.simulated = true;
+        if (deathGameObject != null) deathGameObject.SetActive(false);
+        // Brief immunity during respawn avoids immediate repeated damage.
+        yield return new WaitForSeconds(.6f);
+        dying = false;
     }
 
     private void RestartGame()
     {
-        isTimerRunning = false; // Stop the timer
-        itemCollector.ResetScore();
-        SceneManager.LoadScene(2); 
+        if (ending) return;
+        ending = true;
+        ResetProgress();
+        if (collector != null) collector.ResetScore();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("End Screen");
+    }
+
+    public static void ResetProgress()
+    {
+        PlayerPrefs.DeleteKey(SaveScene);
+        PlayerPrefs.DeleteKey(SaveX);
+        PlayerPrefs.DeleteKey(SaveY);
+        PlayerPrefs.DeleteKey(SaveLives);
+        PlayerPrefs.Save();
     }
 
     public void ResetLives()
     {
-        lives = 10; // Reset lives to starting value
-        UpdateLivesDisplay(); // Update lives display
+        lives = StartingLives;
+        UpdateLivesDisplay();
+        SaveCheckpoint();
     }
 }
